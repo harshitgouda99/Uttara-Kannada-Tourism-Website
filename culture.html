@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Festivals & Culture - Uttara Kannada Tourism Guide</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Bungee&family=Headland+One&display=swap');
+    </style>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-culture">
+    <header class="uk-header">
+        <!-- Navigation Bar -->
+        <nav class="navbar navbar-expand-lg navbar-dark uk-navbar sticky-top">
+            <div class="container">
+                <a class="navbar-brand bungee-regular uk-brand" href="index.html">
+                    <i class="fas fa-mountain me-2"></i>Uttara Kannada
+                </a>
+                <button class="navbar-toggler uk-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link uk-nav-link" href="index.html">
+                                <i class="fas fa-home me-1"></i>Home
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link uk-nav-link" href="liked.html">
+                                <i class="fas fa-heart me-1"></i>Liked Places
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link uk-nav-link active" href="culture.html">
+                                <i class="fas fa-mask me-1"></i>Festivals & Culture
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link uk-nav-link" href="contact.html">
+                                <i class="fas fa-envelope me-1"></i>Contact Us
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <div class="uk-hero text-white text-center py-5">
+            <div class="container">
+                <h1 class="uk-hero-title bungee-regular">Festivals & Culture</h1>
+                <p class="uk-hero-subtitle">Discover the rich cultural heritage and vibrant festivals</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="container my-5">
+        <!-- Festivals Section -->
+        <section class="mb-5">
+            <h2 class="text-center mb-4"><i class="fas fa-calendar-alt"></i> Major Festivals</h2>
+            <div class="row" id="festivals-container">
+                <!-- Festival cards will be generated here -->
+            </div>
+        </section>
+
+        <!-- Culture Section -->
+        <section class="mb-5">
+            <h2 class="text-center mb-4"><i class="fas fa-users"></i> Cultural Heritage</h2>
+            <div class="row" id="culture-container">
+                <!-- Culture cards will be generated here -->
+            </div>
+        </section>
+
+        <!-- Events Section -->
+        <section>
+            <h2 class="text-center mb-4"><i class="fas fa-star"></i> Annual Events</h2>
+            <div class="row" id="events-container">
+                <!-- Event cards will be generated here -->
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5>Uttara Kannada Tourism</h5>
+                    <p>Explore the beautiful coastal district of Uttara Kannada, Karnataka.</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white text-decoration-none">Home</a></li>
+                        <li><a href="liked.html" class="text-white text-decoration-none">Liked Places</a></li>
+                        <li><a href="culture.html" class="text-white text-decoration-none">Festivals & Culture</a></li>
+                        <li><a href="contact.html" class="text-white text-decoration-none">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Contact Info</h5>
+                    <p><i class="fas fa-phone"></i> 9482837468</p>
+                    <p><i class="fas fa-envelope"></i> harshitgouda1@gmail.com</p>
+                </div>
+            </div>
+            <hr class="my-3">
+            <p class="mb-0">&copy; 2026 Uttara Kannada Tourism. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const festivals = [
+            { name: "Sirsi & Yellapur Jatre", description: "Traditional temple festivals celebrated with devotion, colorful processions, and local fairs, showcasing the rich cultural and spiritual heritage of Uttara Kannada district.", month: "Various", image: "images/jatre.jpg" },
+            { name: "Rathotsava", description: "A grand chariot festival dedicated to Lord Shiva, celebrated with deep devotion and massive temple processions. Thousands of devotees gather to pull the sacred ratha, creating a powerful blend of spirituality, tradition, and coastal culture.", month: "Various", image: "images/festival2.jpeg" },
+            { name: "Bandihabba", description: "A traditional coastal festival celebrated to honor cattle, agriculture, and rural life.Decorated bulls and cows are paraded with pride, reflecting the deep bond between farmers, nature, and tradition.", month: "April/May", image: "images/festival3.jpeg" },
+            { name: "Kartikotsava & Dahinkala Utsava", description: "Festival celebrating Lords with special prayers and celebrations during Kartika Masa", month: "November", image: "images/festival4.jpeg" },
+           
+        ];
+
+        const cultures = [
+            { name: "Yakshagana", description: "A vibrant traditional dance-drama of coastal Karnataka that blends music, dance, dialogue, and elaborate costumes.It narrates stories from epics and folklore, showcasing the rich cultural heritage and artistic spirit of the region", image: "images/culture1.jpeg" },
+            { name: "Bedara Vesha", description: "A unique folk tradition where performers dress as hunters and move through the streets with rhythmic dances.It symbolizes courage, protection, and the deep-rooted cultural identity of the Sirsi region.", image: "images/culture2.jpeg" },
+            { name: "Suggi Kunita", description: "A vibrant folk dance performed during the harvest season, celebrating nature, agriculture, and community life.With rhythmic movements and traditional attire, it reflects the rich cultural heritage of the Halakki Vakkaliga tribe.", image: "images/culture3.jpeg" },
+            { name: "Karadi Vesha", description: "A lively folk tradition where performers dress as bears and dance through villages during festivals.It symbolizes joy, courage, and the playful spirit of coastal Uttara Kannada culture.", image: "images/culture4.jpeg" }
+        ];
+
+        const events = [
+            { name: "Karavali Utsava", description: "A grand coastal festival celebrating the culture, traditions, and lifestyle of the Karavali region.It features folk arts, music, dance, food, and exhibitions, showcasing the vibrant spirit of Karwar.", image: "images/event1.jpeg" },
+            { name: "Kadambotsava", description: "A cultural festival celebrating the rich heritage of the ancient Kadamba dynasty.Held in the historic town of Banavasi, it showcases classical arts, folk performances, and traditional values of Karnataka.", image: "images/event2.jpeg" }
+        ];
+
+        function renderCards(items, containerId) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+            items.forEach((item) => {
+                const col = document.createElement('div');
+                col.className = 'col-md-6';
+                col.innerHTML = `
+                    <div class="card h-100">
+                        <img src="${item.image}" class="card-img-top" alt="${item.name}" onerror="this.src='images/bg1.jpeg'">
+                        <div class="card-body">
+                            <h5 class="card-title">${item.name}</h5>
+                            <p class="card-text">${item.description}</p>
+                            ${item.month ? `<p class="text-muted">Month: ${item.month}</p>` : ''}
+                        </div>
+                    </div>
+                `;
+                container.appendChild(col);
+            });
+        }
+
+        // Render all sections
+        renderCards(festivals, 'festivals-container');
+        renderCards(cultures, 'culture-container');
+        renderCards(events, 'events-container');
+    </script>

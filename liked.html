@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liked Places - Uttara Kannada Tourism Guide</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Bungee&family=Headland+One&display=swap');
+    </style>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-liked">
+    <header class="uk-header">
+        <!-- Navigation Bar -->
+        <nav class="navbar navbar-expand-lg navbar-dark uk-navbar sticky-top">
+            <div class="container">
+                <a class="navbar-brand bungee-regular uk-brand" href="index.html">
+                    <i class="fas fa-mountain me-2"></i>Uttara Kannada
+                </a>
+                <button class="navbar-toggler uk-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link uk-nav-link" href="index.html">
+                                <i class="fas fa-home me-1"></i>Home
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link uk-nav-link active" href="liked.html">
+                                <i class="fas fa-heart me-1"></i>Liked Places
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link uk-nav-link" href="culture.html">
+                                <i class="fas fa-mask me-1"></i>Festivals & Culture
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link uk-nav-link" href="contact.html">
+                                <i class="fas fa-envelope me-1"></i>Contact Us
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <div class="uk-hero text-white text-center py-5">
+            <div class="container">
+                <h1 class="uk-hero-title bungee-regular">Your Liked Places</h1>
+                <p class="uk-hero-subtitle">Places you've marked as favorites</p>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container my-4">
+        <div class="row" id="liked-places-container">
+            <!-- Liked place cards will be generated here -->
+        </div>
+    </div>
+    
+    <!-- Place Details Modal -->
+    <div class="modal fade" id="placeModal" tabindex="-1" aria-labelledby="placeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="placeModalLabel">Place Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img id="modal-image" src="" alt="" class="img-fluid mb-3">
+                    <h3 id="modal-title"></h3>
+                    <p><strong>Taluk:</strong> <span id="modal-taluk"></span></p>
+                    <p><strong>Category:</strong> <span id="modal-category"></span></p>
+                    <p><strong>Best Season:</strong> <span id="modal-season"></span></p>
+                    <p><strong>Avg Visitors/Month:</strong> <span id="modal-visitors"></span></p>
+                    <p><strong>Crowd Level:</strong> <span id="modal-crowd"></span></p>
+                    <p><strong>Entry Fee:</strong> ₹<span id="modal-fee"></span></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5>Uttara Kannada Tourism</h5>
+                    <p>Explore the beautiful coastal district of Uttara Kannada, Karnataka.</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white text-decoration-none">Home</a></li>
+                        <li><a href="liked.html" class="text-white text-decoration-none">Liked Places</a></li>
+                        <li><a href="culture.html" class="text-white text-decoration-none">Festivals & Culture</a></li>
+                        <li><a href="contact.html" class="text-white text-decoration-none">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Contact Info</h5>
+                    <p><i class="fas fa-phone"></i> 9482837468</p>
+                    <p><i class="fas fa-envelope"></i> harshitgouda1@gmail.com</p>
+                </div>
+            </div>
+            <hr class="my-3">
+            <p class="mb-0">&copy; 2026 Uttara Kannada Tourism. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const places = [
+            { name: "Om Beach", taluk: "Kumta", category: "Beach", season: "Summer", visitors: 5200, crowd: "High", fee: 0, image: "images/om-beach.jpeg" },
+            { name: "Mirjan Fort", taluk: "Kumta", category: "Heritage", season: "Monsoon", visitors: 1200, crowd: "Low", fee: 20, image: "images/mirjan-fort.jpeg" },
+            { name: "Vibhuti Falls", taluk: "Ankola", category: "Waterfall", season: "Monsoon", visitors: 2500, crowd: "Medium", fee: 20, image: "images/vibhuti-falls.jpeg" },
+            { name: "Sharavathi Backwaters", taluk: "Honnnavar", category: "Nature", season: "Winter", visitors: 2200, crowd: "Medium", fee: 50, image: "images/sharavathi-backwaters.jpeg" },
+            { name: "Kudle Beach", taluk: "Kumta", category: "Beach", season: "Summer", visitors: 5800, crowd: "High", fee: 0, image: "images/kudle-beach.jpeg" },
+            { name: "Honey Beach", taluk: "Ankola", category: "Beach", season: "Summer", visitors: 2200, crowd: "Low", fee: 0, image: "images/honey-beach.jpeg" },
+            { name: "Mahabaleshwar Temple", taluk: "Kumta", category: "Temple", season: "All", visitors: 3500, crowd: "Medium", fee: 0, image: "images/mahableshwar-temple.jpeg" },
+            { name: "Netrani Island", taluk: "Bhatkal", category: "Adventure", season: "Winter", visitors: 900, crowd: "Low", fee: 1500, image: "images/netrani-island.jpeg" },
+            { name: "Sathodi Falls", taluk: "Yellapur", category: "Waterfall", season: "Monsoon", visitors: 2400, crowd: "Medium", fee: 30, image: "images/sathodi-falls.jpeg" },
+            { name: "Kali River Dandeli", taluk: "Dandeli", category: "Adventure", season: "Winter", visitors: 3200, crowd: "Medium", fee: 500, image: "images/kali-river-dandeli.jpeg" },
+            { name: "Tilmati Beach", taluk: "Karwar", category: "Beach", season: "Summer", visitors: 800, crowd: "Low", fee: 0, image: "images/tilmati-beach.jpeg" },
+            { name: "Jenukallu Gudda", taluk: "Yellapur", category: "Hill Station", season: "Winter", visitors: 2800, crowd: "Medium", fee: 0, image: "images/jenukallu-gudda.jpeg" },
+            { name: "Yana Rocks", taluk: "Kumta", category: "Trekking", season: "Winter", visitors: 2600, crowd: "Medium", fee: 30, image: "images/yana.jpeg" },
+            { name: "Murudeshwar Temple", taluk: "Bhatkal", category: "Temple", season: "All", visitors: 7000, crowd: "High", fee: 0, image: "images/Murdeshwar.png" },
+            { name: "Magod Falls", taluk: "Yellapur", category: "Waterfall", season: "Monsoon", visitors: 1600, crowd: "Low", fee: 20, image: "images/magod-falls.jpeg" },
+            { name: "Unchalli Falls", taluk: "Siddapur", category: "Waterfall", season: "Monsoon", visitors: 1700, crowd: "Low", fee: 0, image: "images/unchalli-falls.jpeg" },
+            { name: "Banavasi", taluk: "Sirsi", category: "Heritage", season: "All", visitors: 2200, crowd: "Medium", fee: 0, image: "images/banavasi.jpeg" },
+            { name: "Tibetan Colony", taluk: "Mundgod", category: "Cultural", season: "All", visitors: 3000, crowd: "Medium", fee: 0, image: "images/tibetan-colony.webp" },
+            { name: "GuddaIli Peak", taluk: "Karwar", category: "Hill Station", season: "Winter", visitors: 1000, crowd: "Low", fee: 0, image: "images/guddaili-peak.jpeg" },
+            { name: "Bheemana Gudda", taluk: "Sirsi", category: "Hill Station", season: "Winter", visitors: 800, crowd: "Low", fee: 0, image: "images/bheemana-gudda.webp" }
+        ];
+
+        const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+        const container = document.getElementById('liked-places-container');
+
+        function renderLikedPlaces() {
+            const likedPlaces = places.filter(place => favorites.includes(place.name));
+            container.innerHTML = '';
+            if (likedPlaces.length === 0) {
+                container.innerHTML = '<div class="col-12 text-center"><h3>No liked places yet. Go back and like some places!</h3></div>';
+                return;
+            }
+            
+            // Determine column class based on current page using body class
+            let colClass = 'col-lg-4 col-md-4 col-sm-6 col-12'; // Default 3 cards per line
+            
+            if (document.body.classList.contains('page-culture')) {
+                colClass = 'col-lg-6 col-md-6 col-sm-6 col-12'; // 2 cards per line for culture page
+            }
+            
+            likedPlaces.forEach((place) => {
+                const col = document.createElement('div');
+                col.className = colClass;
+                col.innerHTML = `
+                    <div class="card place-card h-100" data-place="${place.name}">
+                        <div class="position-relative">
+                            <img src="${place.image}" class="card-img-top" alt="${place.name}">
+                            <button class="favorite-btn favorited" data-place="${place.name}">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">${place.name}</h5>
+                            <p class="card-text"><strong>Taluk:</strong> ${place.taluk}</p>
+                            <p class="card-text"><strong>Category:</strong> ${place.category}</p>
+                            <p class="card-text"><strong>Best Season:</strong> ${place.season}</p>
+                            <p class="card-text"><strong>Avg Visitors/Month:</strong> ${place.visitors}</p>
+                            <p class="card-text"><strong>Crowd Level:</strong> ${place.crowd}</p>
+                            <p class="card-text"><strong>Entry Fee:</strong> ₹${place.fee}</p>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(col);
+            });
+
+            // Add event listeners
+            document.querySelectorAll('.place-card').forEach(card => {
+                card.addEventListener('click', (e) => {
+                    if (!e.target.closest('.favorite-btn')) {
+                        const placeName = card.dataset.place;
+                        const place = places.find(p => p.name === placeName);
+                        showModal(place);
+                    }
+                });
+            });
+
+            document.querySelectorAll('.favorite-btn').forEach(btn => {
+                btn.addEventListener('click', toggleFavorite);
+            });
+        }
+
+        function showModal(place) {
+            document.getElementById('modal-image').src = place.image;
+            document.getElementById('modal-image').alt = place.name;
+            document.getElementById('modal-title').textContent = place.name;
+            document.getElementById('modal-taluk').textContent = place.taluk;
+            document.getElementById('modal-category').textContent = place.category;
+            document.getElementById('modal-season').textContent = place.season;
+            document.getElementById('modal-visitors').textContent = place.visitors;
+            document.getElementById('modal-crowd').textContent = place.crowd;
+            document.getElementById('modal-fee').textContent = place.fee;
+
+            const modal = new bootstrap.Modal(document.getElementById('placeModal'));
+            modal.show();
+        }
+
+        function toggleFavorite(e) {
+            const placeName = e.currentTarget.dataset.place;
+            const index = favorites.indexOf(placeName);
+            if (index > -1) {
+                favorites.splice(index, 1);
+            } else {
+                favorites.push(placeName);
+            }
+            localStorage.setItem('favorites', JSON.stringify(favorites));
+            renderLikedPlaces(); // Re-render to update the list
+        }
+
+        // Initial render
+        renderLikedPlaces();
+    </script>
+</body>
+</html>
